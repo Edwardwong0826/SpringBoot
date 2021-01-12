@@ -1,0 +1,20 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    #This is for local mysql
+    url: jdbc:mysql://localhost:3306/springdemo?useTimezone=true&serverTimezone=UTC
+    #This is for connecting docker container mysql instance for 6604:3306 port
+    #url: jdbc:mysql://localhost:6604/test #-- this is something 6604:3306
+    #url: jdbc:mysql://sql_container2/test # this is for docker image sql database
+    username: root
+    password: 61376554
+    #Below is for docker mysql needed
+    initialization-mode: always
+    continue-on-error: true
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    # To auto generate and created the table into the database without we created
+    generate-ddl: true
+    hibernate:
+      ddl-auto=create:
