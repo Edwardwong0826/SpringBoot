@@ -1,8 +1,9 @@
 package com.test.springboot.bean;
 
-public class Pet {
-    private String name;
 
+public class Pet {
+
+    private String name;
 
     public Pet(String name) {
         this.name = name;

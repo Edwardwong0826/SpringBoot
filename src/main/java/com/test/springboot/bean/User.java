@@ -1,8 +1,10 @@
 package com.test.springboot.bean;
 
+
 public class User {
     private String name;
     private int age;
+    private Pet pet;
 
     public User(String name, int age) {
         this.name = name;
@@ -25,11 +27,20 @@ public class User {
         this.age = age;
     }
 
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
+                ", pet=" + pet +
                 '}';
     }
 }
