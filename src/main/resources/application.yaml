@@ -1,6 +1,12 @@
 server:
   port: 8080
 spring:
+  profiles:
+    active: dev2
+
+---
+
+spring:
   datasource:
     #This is for local mysql
     url: jdbc:mysql://localhost:3306/springdemo?useTimezone=true&serverTimezone=UTC
@@ -18,3 +24,25 @@ spring:
     generate-ddl: true
     hibernate:
       ddl-auto=create:
+  profiles: dev1
+
+---
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;
+    username: sa
+    password: 123456
+    driverClassName: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  profiles: dev2
+
+---
+
+
+
+
+
