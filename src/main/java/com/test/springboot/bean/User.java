@@ -2,9 +2,13 @@ package com.test.springboot.bean;
 
 
 public class User {
+
     private String name;
     private int age;
     private Pet pet;
+
+    public User() {
+    }
 
     public User(String name, int age) {
         this.name = name;
