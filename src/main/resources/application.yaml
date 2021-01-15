@@ -3,6 +3,10 @@ server:
 spring:
   profiles:
     active: dev2
+  mvc:
+    static-path-pattern: /res/** #this is to give prefix/res and load the static resources, example localhost:8080/res/xxx
+  resources:
+    static-locations: classpath:/pic  #this is to defined own classpath for static resources
 
 person:
     userName: zhangsan

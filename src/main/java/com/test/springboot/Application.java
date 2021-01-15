@@ -46,7 +46,7 @@ public class Application {
 		boolean user01 = run.containsBean("user01");
 		System.out.println("user01: " + user01);
 
-		boolean haha = run.containsBean("haha");
+		boolean haha = run.containsBean("pic");
 		boolean hehe = run.containsBean("hehe");
 
 		System.out.println("haha: "+haha);
