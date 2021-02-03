@@ -1,5 +1,6 @@
 package com.test.springboot.controller;
 
+import com.test.springboot.bean.Person;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -8,6 +9,18 @@ import java.util.Map;
 
 @RestController
 public class ParameterTestController {
+
+    /**
+     * data binding: page sent request data(GET,POST) can be bind with object fields
+     * @param person
+     * @return
+     */
+    @GetMapping("/saveuser")
+    public Person saveuser(Person person)
+    {
+        return person;
+    }
+
 
     @GetMapping("/car/{id}/owner/{username}")
     public Map<String, Object> getCar(@PathVariable("id") Integer id,
