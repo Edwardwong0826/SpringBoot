@@ -22,6 +22,8 @@ public class ParameterTestController {
     }
 
 
+    // the parameter is handle by the argument resolvers by request mapping handler adapter
+    // there is 26 of type request arugment can support in spring
     @GetMapping("/car/{id}/owner/{username}")
     public Map<String, Object> getCar(@PathVariable("id") Integer id,
                                       @PathVariable("username") String name,
