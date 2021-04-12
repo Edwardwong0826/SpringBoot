@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.Date;
 
 // data response and content negotiation
-// there is 15 type of return response support in spring
-// content negotiation(browser default by request headers tell spring/server what kind of data can accept )
+// there is 15 type of return response support in spring MVC
+// content negotiation manager use content negotiation strategy to manage request, can by on header or others
+// header content negotiation strategy(browser default by request headers tell spring/server what kind of data can accept )
 @Controller
 public class ResponseTestController {
 
@@ -17,7 +18,8 @@ public class ResponseTestController {
     // it will find what kind of methodHandler to use, in this case is response body method handler
     // and use interface MessageConverter to return the value
 
-    // MessageConverter: see if support class convert to media type data
+    // MessageConverter: see if support class convert to media type data, there is 10 message converter for producible types
+    //                 : it will get acceptable types from headers to iterate which message converter can match
     // in this case the MessageConverter is MappingJackson2HttpMessage Converter to convert
     // object into JSON (use low level jackson - objectMapping) anything also can convert to JSON
     // example: canRead - JSON convert to person
@@ -26,6 +28,13 @@ public class ResponseTestController {
     @GetMapping("/test/person")
     public Person getPerson()
     {
+        // in the postman will return json by default due to accept header "/"
+        // here will return xml because we want xml and weight is higher than json weight based on headers
+
+        // If in browser want to change the return data type, need to use parameter content negotiation strategy
+        // in application.properties need to enabled
+        // spring.mvc.contentnegotiation.favor-parameter to true
+        // http://localhost:8080/test/person?format=json or ?format=xml
         Person person = new Person();
         person.setAge(28);
         person.setBirth(new Date());

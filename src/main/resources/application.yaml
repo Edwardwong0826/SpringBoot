@@ -5,6 +5,8 @@ spring:
     active: dev2
   mvc:
     static-path-pattern: /res/** #this is to give prefix/res and load the static resources, example localhost:8080/res/xxx
+    contentnegotiation:
+      favor-parameter: true # this enable in url add ?format=json/xml to decide return what data type
   resources:
     static-locations: classpath:/pic  #this is to defined own classpath for static resources
 
