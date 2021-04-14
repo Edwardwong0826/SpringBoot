@@ -1,6 +1,7 @@
 package com.test.springboot.config;
 
 import com.test.springboot.converter.CustomMessageConverter;
+import com.test.springboot.interceptor.GetInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -9,6 +10,7 @@ import org.springframework.web.accept.HeaderContentNegotiationStrategy;
 import org.springframework.web.accept.ParameterContentNegotiationStrategy;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.util.UrlPathHelper;
@@ -69,4 +71,11 @@ public class WebConfig implements WebMvcConfigurer {
         };
     }
 
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        // /** intercept all and including static resources
+        // path patterns here means url /xxx
+        registry.addInterceptor(new GetInterceptor()).addPathPatterns("/**");
+        //.excludePathPatterns("/test/preson");
+    }
 }
