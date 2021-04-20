@@ -9,6 +9,9 @@ spring:
       favor-parameter: true # this enable in url add ?format=json/xml to decide return what data type
   resources:
     static-locations: classpath:/pic  #this is to defined own classpath for static resources
+#  servlet:
+#    multipart: max-file-size = 10MB #set per file size
+#               max-request-size = 100MB
 
 person:
     userName: zhangsan

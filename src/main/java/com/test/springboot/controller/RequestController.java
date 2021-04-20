@@ -1,5 +1,6 @@
 package com.test.springboot.controller;
 
+import com.test.springboot.exception.UserExceedException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,6 +41,11 @@ public class RequestController {
         map.put("hello", hello);
         map.put("world", world);
         map.put("message", message);
+
+        if(map.size()>2)
+        {
+            throw new UserExceedException();
+        }
 
         return map;
     }
