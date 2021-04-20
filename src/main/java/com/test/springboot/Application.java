@@ -4,10 +4,12 @@ package com.test.springboot;
 import com.test.springboot.config.MyConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.ConfigurableApplicationContext;
 
-
-
+// we can use servlet api to inject servlet
+// if want write own servlet, need to add below to scan
+@ServletComponentScan(basePackages = "com.test.springboot")
 @SpringBootApplication
 public class Application {
 
