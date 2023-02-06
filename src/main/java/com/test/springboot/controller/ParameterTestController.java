@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+// using @RestContoller will automatically convert the response to JSON/XML , so no need explicitly add @ResponseBody in each request method
 @RestController
 public class ParameterTestController {
 
@@ -22,8 +23,8 @@ public class ParameterTestController {
     }
 
 
-    // the parameter is handle by the argument resolvers by request mapping handler adapter
-    // there is 26 of type request arugment can support in spring
+    // the parameter is handled by the argument resolvers by request mapping handler adapter
+    // there is 26 of type request argument can support in spring
     @GetMapping("/car/{id}/owner/{username}")
     public Map<String, Object> getCar(@PathVariable("id") Integer id,
                                       @PathVariable("username") String name,

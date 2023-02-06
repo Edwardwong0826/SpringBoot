@@ -43,7 +43,7 @@ public class WebConfig implements WebMvcConfigurer {
         configurer.setUrlPathHelper(urlPathHelper);
     }
 
-    // By default Spring will already configure default settings for us to use, however
+    // By default, Spring will already configure default settings for us to use, however
     // if want to add our own configure we can manually add return WebMvcConfigurer bean into IOC
     @Bean
     public WebMvcConfigurer webMvcConfigurer(){
